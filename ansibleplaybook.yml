@@ -1,0 +1,12 @@
+---
+
+- hosts: workers
+  tasks:
+    - name: Copy files from controller to worker
+      copy:
+        src: "/home/kirejordanov/Desktop/Lab5/{{ item }}"
+        dest: /home/kirejordanov2/Lab5/
+      with_items:
+        - Dockerfile
+        - index.html
+        - main.py 

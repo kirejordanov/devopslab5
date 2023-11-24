@@ -1,0 +1,15 @@
+---
+
+-hosts: workers
+ tasks:
+   - name: Pull docker image
+     docker_image:
+       name: kirejordanov/lab5
+       source: pull
+   - name: Run docker container
+     docker_container:
+       name: lab5-container
+       image: kirejordanov/lab5
+       state: started
+       env:
+        PORT: '5000'
