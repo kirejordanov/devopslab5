@@ -7,6 +7,6 @@ WORKDIR /app
 COPY /app/main.py ./
 COPY /app/index.html ./templates/
 
-ENW PORT=5000  
+ENV PORT=5000  
 
 CMD ["python3", "./main.py"]
