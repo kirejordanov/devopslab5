@@ -12,7 +12,7 @@ pipeline {
 		}
 		stage('Build and push docker image') {
 			steps {
-				withCredentials([usernamePassword(credentialsId: 'kiredockerhub', passwordVariable: 'DOCKERHUB_PASSWORD', usernameVariable: 'DOCKERHUB_USERNAME')]){
+				withCredentials([usernamePassword(credentialsId: 'dockerhubkire', passwordVariable: 'DOCKERHUB_PASSWORD', usernameVariable: 'DOCKERHUB_USERNAME')]){
 					sh "docker login -u ${DOCKERHUB_USERNAME} -p ${DOCKERHUB_PASSWORD}"
 					sh "docker build -t ${DOCKERHUB_USERNAME}/${params.IMAGE_NAME} ."
 					sh "docker push ${DOCKERHUB_USERNAME}/${params.IMAGE_NAME}"
